@@ -18,8 +18,10 @@ export const getPosts = async(req, res) => { //switch it up to get post by page
         res.status(200).json({ data: posts, currentPage: Number(page), numberOfPages: Math.ceil(total / LIMIT) });
     }
     catch(error){
+        console.log(error)
         res.status(404).json({ message: error.message });
     }
+
 };
 
 //req.Query -> /posts?page = 1 -> page = 1. therefore one requires the page to fetch 
